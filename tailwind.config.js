@@ -1,4 +1,5 @@
 module.exports = {
+    mode: 'jit',
     content: [
         "./index.html",
         "./src/**/*.{js,ts,jsx,tsx}",
@@ -14,6 +15,15 @@ module.exports = {
                 'gray-300': '#D1D5DB',
             }
         }
+    },
+    variants: {
+        extend: {
+            rotate: ['peer-checked'],
+            translate: ['peer-checked'],
+            zIndex: ['peer-checked'],
+            width: ['peer-checked'],
+            backgroundColor: ['peer-checked'],
+        },
     },
     plugins: [],
 }
