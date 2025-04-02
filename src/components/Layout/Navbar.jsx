@@ -23,7 +23,7 @@ export default function Navbar() {
 
                     {/* Button to toggle navbar (using the custom Switch component) */}
                     <div className="flex md:hidden">
-                        <Switch /> {/* Add the Switch component here */}
+                        <Switch isOpen={isOpen} setIsOpen={setIsOpen} />
                     </div>
                 </div>
             </div>

@@ -1,14 +1,80 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const Switch = () => {
+const Switch = ({ isOpen, setIsOpen }) => {
     return (
-        <label htmlFor="nav_bar_icon" className="w-9 h-10 cursor-pointer flex flex-col items-center justify-center space-y-1.5">
-            <input id="nav_bar_icon" type="checkbox" className="hidden peer" />
-            <div className="w-2/3 h-1.5 bg-purple-400 rounded-lg transition-all duration-300 origin-right peer-checked:w-full peer-checked:rotate-[-30deg] peer-checked:translate-y-[-5px]" />
-            <div className="w-full h-1.5 bg-purple-400 rounded-lg transition-all duration-300 origin-center peer-checked:rotate-90 peer-checked:translate-x-4" />
-            <div className="w-2/3 h-1.5 bg-purple-400 rounded-lg transition-all duration-300 origin-right peer-checked:w-full peer-checked:rotate-[30deg] peer-checked:translate-y-[5px]" />
-        </label>
+        <StyledWrapper onClick={() => setIsOpen(!isOpen)}>
+            <div>
+                <input type="checkbox" id="checkbox" />
+                <label htmlFor="checkbox" className="toggle">
+                    <div className="bars" id="bar1" />
+                    <div className="bars" id="bar2" />
+                    <div className="bars" id="bar3" />
+                </label>
+            </div>
+        </StyledWrapper>
     );
 }
 
+const StyledWrapper = styled.div`
+    #checkbox {
+        display: none;
+    }
+
+    .toggle {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition-duration: .5s;
+    }
+
+    .bars {
+        width: 100%;
+        height: 4px;
+        background-color: rgb(220, 19, 19);
+        border-radius: 4px;
+    }
+
+    #bar2 {
+        transition-duration: .8s;
+    }
+
+    #bar1, #bar3 {
+        width: 70%;
+    }
+
+    #checkbox:checked + .toggle .bars {
+        position: absolute;
+        transition-duration: .5s;
+    }
+
+    #checkbox:checked + .toggle #bar2 {
+        transform: scaleX(0);
+        transition-duration: .5s;
+    }
+
+    #checkbox:checked + .toggle #bar1 {
+        width: 100%;
+        transform: rotate(45deg);
+        transition-duration: .5s;
+    }
+
+    #checkbox:checked + .toggle #bar3 {
+        width: 100%;
+        transform: rotate(-45deg);
+        transition-duration: .5s;
+    }
+
+    #checkbox:checked + .toggle {
+        transition-duration: .5s;
+        transform: rotate(180deg);
+    }`;
+
 export default Switch;
+
