@@ -1,28 +1,17 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import React from 'react';
-import Switch from "./NavbarSwitch.jsx"; // Import the Switch component
+import Switch from "./NavbarSwitch.jsx";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="bg-gray-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-between h-16">
-                    {/* Logo (Commented out as per your request) */}
-                    {/* <div className="flex-shrink-0">
-                        <Link to="/" className="flex items-center">
-                            <img
-                                src="/../../src/assets/logo.png"
-                                className="h-8 w-auto"
-                                alt="F1 Logo"
-                            />
-                        </Link>
-                    </div> */}
 
-                    {/* Button to toggle navbar (using the custom Switch component) */}
-                    <div className="flex md:hidden">
+        <nav className="bg-f1-red w-full fixed top-0 z-50 shadow-lg">
+            <div className="bg-gray-700 w-full mx-auto sm:px-6 lg:px-3">
+                <div className="flex items-center h-16">
+                    <div className="flex">
                         <Switch isOpen={isOpen} setIsOpen={setIsOpen} />
                     </div>
                 </div>
@@ -48,7 +37,7 @@ export default function Navbar() {
                         </Link>
                         <Link
                             to="/constructors"
-                            className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                            className="text-red-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                             onClick={() => setIsOpen(false)}
                         >
                             Constructors

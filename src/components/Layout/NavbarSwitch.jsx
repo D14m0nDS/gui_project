@@ -3,78 +3,58 @@ import styled from 'styled-components';
 
 const Switch = ({ isOpen, setIsOpen }) => {
     return (
-        <StyledWrapper onClick={() => setIsOpen(!isOpen)}>
-            <div>
-                <input type="checkbox" id="checkbox" />
-                <label htmlFor="checkbox" className="toggle">
-                    <div className="bars" id="bar1" />
-                    <div className="bars" id="bar2" />
-                    <div className="bars" id="bar3" />
-                </label>
-            </div>
+        <StyledWrapper onClick={() => setIsOpen(!isOpen)} className={isOpen ? 'active' : ''}>
+            <span className="bar bar1"></span>
+            <span className="bar bar2"></span>
+            <span className="bar bar3"></span>
         </StyledWrapper>
     );
-}
+};
 
 const StyledWrapper = styled.div`
-    #checkbox {
-        display: none;
-    }
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
 
-    .toggle {
-        position: relative;
-        width: 40px;
-        height: 40px;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        transition-duration: .5s;
-    }
-
-    .bars {
-        width: 100%;
-        height: 4px;
-        background-color: rgb(220, 19, 19);
-        border-radius: 4px;
-    }
-
-    #bar2 {
-        transition-duration: .8s;
-    }
-
-    #bar1, #bar3 {
-        width: 70%;
-    }
-
-    #checkbox:checked + .toggle .bars {
+    .bar {
         position: absolute;
-        transition-duration: .5s;
+        width: 24px;
+        height: 3px;
+        background-color: rgb(255 30 0);
+        border-radius: 2px;
+        transition: all 0.3s ease;
     }
 
-    #checkbox:checked + .toggle #bar2 {
-        transform: scaleX(0);
-        transition-duration: .5s;
+    .bar1 {
+        top: 10px;
     }
 
-    #checkbox:checked + .toggle #bar1 {
-        width: 100%;
+    .bar2 {
+        top: 18px;
+    }
+
+    .bar3 {
+        top: 26px;
+    }
+
+    &.active .bar1 {
+        top: 18px;
         transform: rotate(45deg);
-        transition-duration: .5s;
     }
 
-    #checkbox:checked + .toggle #bar3 {
-        width: 100%;
+    &.active .bar2 {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+
+    &.active .bar3 {
+        top: 18px;
         transform: rotate(-45deg);
-        transition-duration: .5s;
     }
-
-    #checkbox:checked + .toggle {
-        transition-duration: .5s;
-        transform: rotate(180deg);
-    }`;
+`;
 
 export default Switch;
-
