@@ -11,17 +11,19 @@ import Navbar from './components/Layout/Navbar'
 
 export default function App() {
     return (
-        <Router>
-            <Navbar />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/standings" element={<Standings />} />
-                <Route path="/drivers" element={<Drivers />} />
-                <Route path="/constructors" element={<Constructors />} />
-                <Route path="/races/:raceId" element={<RaceDetails />} />
-                <Route path="/drivers/:driverId" element={<DriverDetails />} />
-                <Route path="/constructors/:constructorId" element={<ConstructorDetails />} />
-            </Routes>
-        </Router>
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <Router>
+                <Navbar />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/standings" element={<Standings />} />
+                    <Route path="/drivers" element={<Drivers />} />
+                    <Route path="/constructors" element={<Constructors />} />
+                    <Route path="/races/:raceId" element={<RaceDetails />} />
+                    <Route path="/drivers/:driverId" element={<DriverDetails />} />
+                    <Route path="/constructors/:constructorId" element={<ConstructorDetails />} />
+                </Routes>
+            </Router>
+        </div>
     )
 };

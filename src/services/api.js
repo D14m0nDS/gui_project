@@ -95,8 +95,6 @@ export const F1Api = {
         }
     },
 
-    // Images
-    getDriverImage: (driverId) => `${API_BASE}/images/${driverId}.png`,
-    getConstructorImage: (constructorId) => `${API_BASE}/images/${constructorId}.png`,
-    getCircuitImage: (circuitId) => `${API_BASE}/images/${circuitId}_xxhdpi.png`
+    getConstructorImage: (constructorId) => `${API_BASE}/images/${constructorId}_hdpi.png`,
+    getCircuitImage: (circuitId) => `${API_BASE}/images/${circuitId}_hdpi.png`
 };
